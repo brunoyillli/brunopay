@@ -19,7 +19,7 @@ public class TransacaoResource extends ResourceBase<TransacaoDTO> {
 
 	@Autowired
 	private ITransacoaoService transacaoService;
-	
+
 	@PostMapping
 	public ResponseEntity<TransacaoDTO> salvar(@RequestBody @Valid TransacaoDTO transacaoDTO,
 			UriComponentsBuilder uriBuilder) {

@@ -1,6 +1,8 @@
 package io.github.brunoyillli.brunopay.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import io.github.brunoyillli.brunopay.conversor.TransacaoConversor;
@@ -38,6 +40,12 @@ public class TransacaoService implements ITransacoaoService {
 		Transacao transacao = transacaoConversor.converterDtoParaEntidade(transacaoDTO);
 		usuarioService.validar(transacao.getDestino(), transacao.getOrigem());
 		return transacaoRepository.save(transacao);
+	}
+
+	@Override
+	public Page<TransacaoDTO> listar(Pageable paginacao, String login) {
+		Page<Transacao> transacoes = transacaoRepository.findByOrigem_LoginOrDestino_Login(login,login, paginacao);
+		return transacaoConversor.converterPageEntidadeParaDto(transacoes);
 	}
 
 }

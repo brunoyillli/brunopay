@@ -13,19 +13,19 @@ import io.github.brunoyillli.brunopay.service.IUsuarioService;
 
 @Service
 public class TransacaoService implements ITransacoaoService {
-	
+
 	@Autowired
 	private TransacaoConversor transacaoConversor;
-	
+
 	@Autowired
 	private IUsuarioService usuarioService;
-	
+
 	@Autowired
 	private TransacaoRepository transacaoRepository;
-	
+
 	@Autowired
 	private ICartaoCreditoService cartaoCreditoService;
-	
+
 	@Override
 	public TransacaoDTO processar(TransacaoDTO transacaoDTO) {
 		Transacao transacao = salvar(transacaoDTO);
@@ -39,5 +39,5 @@ public class TransacaoService implements ITransacoaoService {
 		usuarioService.validar(transacao.getDestino(), transacao.getOrigem());
 		return transacaoRepository.save(transacao);
 	}
-	
+
 }

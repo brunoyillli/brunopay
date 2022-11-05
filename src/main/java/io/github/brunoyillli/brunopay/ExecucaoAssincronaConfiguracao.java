@@ -1,3 +1,4 @@
+package io.github.brunoyillli.brunopay;
 import java.util.concurrent.Executor;
 
 import org.springframework.context.annotation.Bean;

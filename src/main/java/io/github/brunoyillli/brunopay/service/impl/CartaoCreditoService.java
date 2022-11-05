@@ -1,6 +1,7 @@
 package io.github.brunoyillli.brunopay.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import io.github.brunoyillli.brunopay.conversor.CartaoCreditoConversor;
 import io.github.brunoyillli.brunopay.dto.CartaoCreditoDTO;
@@ -9,6 +10,7 @@ import io.github.brunoyillli.brunopay.repository.CartaoCreditoRepository;
 import io.github.brunoyillli.brunopay.service.ICartaoCreditoService;
 import io.github.brunoyillli.brunopay.service.IUsuarioService;
 
+@Service
 public class CartaoCreditoService implements ICartaoCreditoService {
 
 	@Autowired

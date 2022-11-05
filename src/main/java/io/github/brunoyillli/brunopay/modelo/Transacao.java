@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -28,11 +29,11 @@ public class Transacao extends EntidadeBase {
 	private String codigo;
 
 	@ManyToOne(cascade = { CascadeType.MERGE })
-	@Column(name = "TR_USUARIO_ORIGEM", nullable = false)
+	@JoinColumn(name = "TR_USUARIO_ORIGEM", nullable = false)
 	private Usuario origem;
 
 	@ManyToOne(cascade = { CascadeType.MERGE }, fetch = FetchType.EAGER)
-	@Column(name = "TR_USUARIO_DESTINO", nullable = false)
+	@JoinColumn(name = "TR_USUARIO_DESTINO", nullable = false)
 	private Usuario destino;
 
 	@Column(name = "TR_DATA_HORA", nullable = false)
@@ -40,4 +41,5 @@ public class Transacao extends EntidadeBase {
 
 	@Column(name = "TR_VALOR", nullable = false)
 	private Double valor;
+
 }

@@ -11,11 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.brunoyillli.brunopay.dto.UsuarioDTO;
+import io.github.brunoyillli.brunopay.resource.swagger.IUsuarioResource;
 import io.github.brunoyillli.brunopay.service.IUsuarioService;
 
 @RestController
 @RequestMapping("/usuarios")
-public class UsuarioResource extends ResourceBase<UsuarioDTO> {
+public class UsuarioResource extends ResourceBase<UsuarioDTO> implements IUsuarioResource{
 
 	@Autowired
 	private IUsuarioService usuarioService;

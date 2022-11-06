@@ -16,11 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import io.github.brunoyillli.brunopay.dto.TransacaoDTO;
+import io.github.brunoyillli.brunopay.resource.swagger.ITransacaoResource;
 import io.github.brunoyillli.brunopay.service.ITransacoaoService;
 
 @RestController
 @RequestMapping("/transacoes")
-public class TransacaoResource extends ResourceBase<TransacaoDTO> {
+public class TransacaoResource extends ResourceBase<TransacaoDTO> implements ITransacaoResource {
 
 	@Autowired
 	private ITransacoaoService transacaoService;
